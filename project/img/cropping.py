@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 import os, sys
 
-length = float(sys.argv[1])
-height = float(sys.argv[2])
+length = 1200#float(sys.argv[1])
+height = 600#float(sys.argv[2])
 
 fname = os.listdir('origin/')
 fname = [t for t in fname if t[-1] != 'y' and t[-1] != 'd' and t[-1]!='e']
