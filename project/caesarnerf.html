@@ -1,0 +1,365 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V3D20SW4N4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V3D20SW4N4');
+</script>
+	
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>CaesarNeRF: Calibrated Sematic Representation for Few-shot Generalizable Neural Rendering</title>
+  <link rel="stylesheet" href="assets/css/Highlight-Clean.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+  <link rel="manifest" href="site.webmanifest">
+
+  <meta property="og:site_name" content="CaesarNeRF" />
+  <meta property="og:type" content="video.other" />
+  <meta property="og:title" content="CaesarNeRF: Calibrated Semantic Representation for Few-shot Generalizable Neural Rendering" />
+  <meta property="og:description" content="CaesarNeRF: Calibrated Semantic Representation." />
+  <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/codemirror.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/codemirror.min.js"></script>
+  <script src="assets/js/clipboard.min.js"></script>
+  <script src="assets/js/video_comparison.js"></script>
+  <script src="assets/js/app.js"></script>
+
+</head>
+
+<style>
+  .author-table td {
+    padding: 10px;  /* Adjust as needed */
+  }
+</style>
+
+<style>
+  .video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 15%; /* for 16:9 aspect ratio. Adjust as needed */
+  margin-bottom: 30px; /* adjust as needed */
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} 
+  </style>
+
+<style>
+  .video-container2 {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 18%; /* for 16:9 aspect ratio. Adjust as needed */
+  margin-bottom: 0px; /* adjust as needed */
+}
+
+.video-container2 video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} 
+  </style>
+
+
+
+<body>
+    <div class="highlight-clean" style="padding-bottom: 10px;">
+	<div class="container" style="max-width: 1060px;">
+    <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+        <h1 class="col-md-12 text-center" id="title">
+          <b>CaesarNeRF</b>: Calibrated Semantic Representation for Few-shot Generalizable Neural Rendering <br>
+        </h1>
+    </div>
+	</div>
+	<div class="container" style="max-width: 868px;">
+		<div class="row" id="author-row" style="margin:0 auto;">
+      <div class="col-md-12 text-center" style="display: table; margin:0 auto">
+          <table class="author-table" id="author-table">
+              <tr>
+                  <td>
+                      <a style="text-decoration:none" href="https://haidongz-usc.github.io/">
+                        Haidong Zhu</a><sup>1,*</sup>
+                      <!-- <br>Ohio State University -->
+                  </td>
+                  <td>
+                      <a style="text-decoration:none" href="https://www.tianyuding.com/">
+                        Tianyu Ding</a><sup>2,*&dagger;</sup>
+                      <!-- <br>Microsoft -->
+                  </td>
+                  <td>
+                      <a style="text-decoration:none" href="https://scholar.google.com/citations?user=2BahjdkAAAAJ&hl=en">
+                       Tianyi Chen</a><sup>2</sup>
+                      <!-- <br>Microsoft -->
+                  </td>
+                  <td>
+                    <a style="text-decoration:none" href="https://www.microsoft.com/applied-sciences/people/ilya-zharkov">
+                    Ilya Zharkov</a><sup>2</sup>
+                    <!-- <br>Microsoft -->
+                  </td>
+                  <td>
+                    <a style="text-decoration:none" href="https://sites.usc.edu/iris-cvlab/professor-ram-nevatia/">
+                     Ram Nevatia</a><sup>1</sup>
+                    <!-- <br>Ohio State Univeristy -->
+                  </td>
+                  <td>
+                    <a style="text-decoration:none" href="https://sites.google.com/site/lumingliangshomepage/">
+                     Luming Liang</a><sup>2&dagger;</sup>
+                    <!-- <br>Microsoft -->
+                  </td>
+              </tr>
+          </table>
+
+          <!-- New table -->
+          <table class="author-table" id="new-author-table">
+            <tr>
+              <td>
+                <sup>1</sup>University of Southern California
+              </td>
+              <td>
+                <sup>2</sup>Microsoft
+              </td>
+              <!-- Add more <td> elements as needed -->
+            </tr>
+          </table>
+          <!-- 
+          <table class="author-table" id="new-author-table">
+            <tr>
+              <td>
+                <sup>*</sup>Equal contribution.
+              </td>
+              <td>
+                <sup>&dagger;</sup>Corresponding authors.
+              </td>
+            </tr>
+          </table>
+          -->    
+      </div>
+  </div>   
+	</div>
+  <div class="row">
+    <div class="container" style="max-width: 868px;">
+      <nav class="nav nav-pills nav-fill nav-justified">
+
+        <a class="nav-link nav-item" href="">
+        <img src="./resources/paper.png" height="60px">
+            <h4><strong>Paper</strong></h4>
+      </a>
+        <a class="nav-link nav-item" href="" target="_blank">
+        <img src="./resources/github.png" height="60px">
+            <h4><strong>Code (Coming Soon!)</strong></h4>
+      </a>
+    </nav>
+    <!--<div class="container" style="max-width: 868px;">-->
+        <!--
+        <ul class="nav nav-pills nav-justified">
+            <li>
+                <a href="">
+                <img src="./resources/paper.png" height="60px">
+                    <h4><strong>Paper</strong></h4>
+                </a>
+            </li>
+            <li>
+                <a href="" target="_blank">
+                <img src="./resources/github.png" height="60px">
+                    <h4><strong>Code (Coming Soon!)</strong></h4>
+                </a>
+            </li>
+        </ul>
+      -->
+    </div>
+  </div>
+    </div>
+    <div class="row">
+      
+    <div class="container" style="max-width: 868px;">
+      <!--<div class="col-md-8 col-md-offset-2">-->
+         <image src="./resources/teaser.png" class="img-responsive" alt="overview" width="60%" style="width: 850px;margin:auto;"> 
+          <!--<div class="video-container2">
+            <video loop muted autoplay class="embed-responsive-item">
+              <source src="resources/teaser.mp4" type="video/mp4">
+            </video>
+          </div>-->
+          <p class="text-center" style="padding-top: 15px; margin-bottom: -3px;">Novel view synthesis for novel scenes using <span style="color: #FF0000;"><strong>ONE</strong></span> reference view on Shiny, LLFF, and MVImgNet (top to bottom). 
+          Each pair of images corresponds to the results from GNT (left) and CaesarNeRF (right).</p>
+    </div>
+  </div>
+    <hr class="divider" />
+    <div class="container" style="max-width: 868px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Abstract</h2>
+                <p class="text-justify">
+                  Generalizability and few-shot learning are key challenges in Neural Radiance Fields (NeRF), often due to the lack of a holistic understanding in pixel-level rendering. We introduce CaesarNeRF, an end-to-end approach that leverages scene-level <strong>CA</strong>librat<strong>E</strong>d <strong>S</strong>em<strong>A</strong>ntic <strong>R</strong>epresentation along with pixel-level representations to advance few-shot, generalizable neural rendering, facilitating a holistic understanding without compromising high-quality details. CaesarNeRF explicitly models pose differences of reference views to combine scene-level semantic representations, providing a calibrated holistic understanding. This calibration process aligns various viewpoints with precise location and is further enhanced by sequential refinement to capture varying details. Extensive experiments on public datasets, including LLFF, Shiny, mip-NeRF 360, and MVImgNet, show that CaesarNeRF delivers state-of-the-art performance across varying numbers of reference views, proving effective even with a single reference image.
+                </p>
+      
+				<h3>TL;DR:</h3>
+        <p class="text-justify">
+              We incoperate holistic scene understanding along with pixel-level rendering for neural radiance field.
+        </p>
+        </div>
+        </div>
+        <image src="resources/overview.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image>
+    </div>
+  
+  <hr class="divider" />
+    <div class="container" style="max-width: 868px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Singe-scene rendering</h2>
+            </div>
+        </div>
+        <table  class="image-table"><tr>
+        <td><image src="resources/vis_single_scene/single_scene_optimization.gif" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+      </tr></table>
+        <table  class="image-table"><tr>
+        <td><image src="resources/vis_single_scene/single_scene_optimization_1.gif" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/vis_single_scene/single_scene_optimization_2.gif" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+      </tr></table>
+
+          <!-- <image src="resources/sampling.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image> -->
+    <hr class="divider" />
+
+    <div class="container" style="max-width: 868px;">
+      <div class="row">
+          <div class="col-sm-12">
+              <h2>Generalizable rendering with few reference views</h2>
+          </div>
+      </div>
+        <p class="text-justify">
+              One Reference View:
+        </p>
+
+        <table  class="image-table">
+        <colgroup>
+          <col class="twenty" />
+          <col class="twenty" />
+          <col class="twenty" />
+          <col class="twenty" />
+          <col class="twenty" />
+        </colgroup>
+        <tr>    
+        <td style="text-align: center">IBRNet</td>  <td style="text-align: center">GPNR</td>  <td style="text-align: center">NeuRay</td>  <td style="text-align: center">Ours</td>  <td style="text-align: center">Ground-truth</td>  
+      </tr>
+        <tr>    
+        <td><image src="resources/main/1-2.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/1-3.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/1-4.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/1-5.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/1-1.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+      </tr>
+        <tr>    
+        <td><image src="resources/main/2-2.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/2-3.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/2-4.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/2-5.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/2-1.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+      </tr>
+    </table>
+
+        <p class="text-justify">
+              Two Reference Views:
+        <table  class="image-table">
+        <colgroup>
+          <col class="twenty" />
+          <col class="twenty" />
+          <col class="twenty" />
+          <col class="twenty" />
+          <col class="twenty" />
+        </colgroup>
+        <tr>    
+        <td style="text-align: center">IBRNet</td>  <td style="text-align: center">GPNR</td>  <td style="text-align: center">NeuRay</td>  <td style="text-align: center">Ours</td>  <td style="text-align: center">Ground-truth</td>  
+      </tr>
+        <tr>
+        <td><image src="resources/main/3-2.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/3-3.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/3-4.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/3-5.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/3-1.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+      </tr>
+        <tr>    
+        <td><image src="resources/main/4-2.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/4-3.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/4-4.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/4-5.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/main/4-1.png" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+      </tr></table>
+        </p>
+        <p class="text-justify">
+              Three Reference Views:
+        </p>
+        <table  class="image-table"><tr>
+        <td><image src="resources/vis_generalizable/flower.gif" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/vis_generalizable/horn.gif" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+      </tr>
+        <tr>    
+        <td><image src="resources/vis_generalizable/orchid.gif" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+        <td><image src="resources/vis_generalizable/leaves.gif" class="img-responsive" alt="overview" width="100%" style="max-height: 450px;margin:auto;"></image></td>
+      </tr></table>
+  <hr class="divider" />
+    <div class="container" style="max-width: 868px;">
+        <div class="row">
+            <div class="col-md-12">
+                If you find our work helpful, please feel free to use the following BibTex entry <br>
+                <code>
+                    @article{TODO,<br>
+                    &nbsp; author = {TODO},<br>
+                    &nbsp; title  = {TODO},<br>
+                    &nbsp; joural = {ArXiv},<br>
+                    &nbsp; year   = {2023},<br>
+                }</code></div> 
+        </div>
+    </div>
+
+    <hr class="divider" />
+    <div class="container" style="max-width: 868px;">
+      <div class="row">
+          <div class="col-md-12">
+              <h2>Acknowledgement</h2>
+              <p>This webpage is borrowed from <a href="https://jiawei-yang.github.io/FreeNeRF/">FreeNeRF</a> and <a href="https://dorverbin.github.io/refnerf/">RefNeRF</a>. We sincerely thank the authors for their great work.</p>
+                <br></p>
+            </div>
+          </div>
+    </div>
+
+    <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+    <script src="/assets/js/yall.js"></script>
+    <script>
+        yall(
+            {
+                observeChanges: true
+            }
+        );
+    </script>
+    <script src="/assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.fd002feec.js"></script>
+    <!-- Import the component -->
+</body>
+
+</html>
